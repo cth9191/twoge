@@ -1,11 +1,11 @@
-FROM alpine:latest
-WORKDIR /app
+FROM python:alpine
+
+
+
+RUN apk update && \
+    apk add --no-cache build-base libffi-dev openssl-dev
 COPY . /app
-RUN apk update && apk upgrade
-RUN apk add python3
-RUN apk add py3-pip
-RUN python -m venv .venv
-RUN source .venv/bin/activate
-RUN pip install -r requirements.tx
-CMD ["python", "app.py"]
+WORKDIR /app
+RUN pip install -r requirements.txt
 EXPOSE 80
+CMD python ./app.py
