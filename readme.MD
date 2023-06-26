@@ -15,18 +15,18 @@
 
 ## Step 2. Dockerize project root Directory
 ```
-  From alpine:latest
-  workdir /app
-  COPY . /app
+  From alpine:latest\
+  workdir /app\
+  COPY . /app\
 
-  RUN apk update && apk upgrade
-  RUN apk add python3
-  RUN apk add py3-pip
-  RUN python -m venv .venv
-  RUN source .venv/bin/activate
-  RUN pip install -r requirements.txt
+  RUN apk update && apk upgrade\
+  RUN apk add python3\
+  RUN apk add py3-pip\
+  RUN python -m venv .venv\
+  RUN source .venv/bin/activate\
+  RUN pip install -r requirements.txt\
 
-  EXPOSE 80
+  EXPOSE 80\
 
   CMD ["python", "app.py"]
 ```
