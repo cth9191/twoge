@@ -10,7 +10,7 @@
   DOCKER_USERNAME\
   DOCKER_PASSWORD\
   AWS_ACCESS_KEY_ID\
-  AWS_SECRET_ACCESS_KEY\
+  AWS_SECRET_ACCESS_KEY
 ```
 
 ## Step 2. Dockerize project root Directory
