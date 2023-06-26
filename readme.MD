@@ -3,9 +3,7 @@
 ```
 ## Step 1. Create Directory and Clone Repo
 ```
-  mkdir eb-assgmnt-twoge && cd eb-assgmnt-twoge/
-  git clone https://github.com/asanni2022/twoge
-  cd twoge/
+ 
 ```
 ### Set GitHub Token Access
 ```
