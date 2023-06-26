@@ -17,37 +17,37 @@
 ```
   From alpine:latest\
   workdir /app\
-  COPY . /app\
+  COPY . /app
 
   RUN apk update && apk upgrade\
   RUN apk add python3\
   RUN apk add py3-pip\
   RUN python -m venv .venv\
   RUN source .venv/bin/activate\
-  RUN pip install -r requirements.txt\
+  RUN pip install -r requirements.txt
 
-  EXPOSE 80\
+  EXPOSE 80
 
   CMD ["python", "app.py"]
 ```
 ### Build Docker Image locally
 ```
- docker build -t twogeassmt3 .
+ docker build -t twogeassmt3 .\
  docker images
  ```
 ### Create Database Container
 ```
-  docker run -itd -p 5432:5432 --name postgres-twoge-cont -e POSTGRES_USER=mytwoge -e POSTGRES_DB=mytwoge_db -e POSTGRES_PASSWORD=mypostgres postgres
-  export SQLALCHEMY_DATABASE_URI=postgresql://mytwoge:mypostgres@localhost:5432/mytwoge_db
-  python3 -m venv venv
-  source venv/bin/activate
-  pip install -r requirements.txt
+  docker run -itd -p 5432:5432 --name postgres-twoge-cont -e POSTGRES_USER=mytwoge -e POSTGRES_DB=mytwoge_db -e POSTGRES_PASSWORD=mypostgres postgres\
+  export SQLALCHEMY_DATABASE_URI=postgresql://mytwoge:mypostgres@localhost:5432/mytwoge_db\
+  python3 -m venv venv\
+  source venv/bin/activate\
+  pip install -r requirements.txt\
   gunicorn app:app -c gunicorn_config.py
 ```
 
 ## Step 3: Implementing CI/CD with GitHub Actions
 ```
-mkdir -p .github/workflows/ && cd workflows
+mkdir -p .github/workflows/ && cd workflows\
 touch docker-push-cicd.yml
 ```
 
