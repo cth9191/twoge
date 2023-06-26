@@ -7,7 +7,7 @@
 		src="./static/img/twoge-cover.png">
 </h1>
 
-Twoge is a social media platform dedicated solely to tweets about Dodge. This application is built using Flask, SQLAlchemy, and PostgreSQL.
+Twoge is a social media platform dedicated solely to tweets about Dodge. This application is built using Flask, SQLAlchemy, and PostgreSQL (see the rest of the original Twoge readme.md at https://github.com/chandradeoarya/twoge)...
 
 <h1 align="center">
 	<img
@@ -16,32 +16,24 @@ Twoge is a social media platform dedicated solely to tweets about Dodge. This ap
 		src="./static/img/twoge.png">
 </h1>
 
-## **Prerequisites**
+## App launch and CICD Implementation
+Before CICD, the application is brought up and running via:
+1. Terraform to create the RDS instance
+2. Dockerfile
+3. Elastic Beanstalk CLI commands:
+ 	- eb init
+ 	- eb create twoge-app-server --single
+ 	- eb setenv SQLALCHEMY_DATABASE_URI=postgresql://<user>:<password>@<path-to-db-host>:5432/twogedbtf
+ 	- eb deploy
+4. Git commit
+5. Now the app is running and it is .github/workflows/cicd.yml's time to shine :)
+	
 
-Before you can launch Twoge, you will need to have the following software installed on your system:
+## Other things
+The creation of the AWS RDS instance was done using Terraform code as outlined in a few examples, changing and adding whatever is necessary for the project:
+- terraform docs are always helpful: 
+	- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
+	- https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest
+- also this tutorial: https://fitdevops.in/create-rds-instances-using-terraform/
 
-- Python 3
-- Flask
-- SQLAlchemy
-- PostgreSQL
-
-## **Getting started**
-
-To get started with Twoge, follow these steps:
-
-1. Clone the repository to your local machine.
-2. Create a virtual environment for the project and activate it.
-3. Install the required packages using **`pip install -r requirements.txt`**.
-4. Create a PostgreSQL database for the application.
-5. Set the **`DATABASE_URL`** environment variable to the URL of your PostgreSQL database.
-6. Run the application using **`python app.py`**.
-7. Navigate to **`http://localhost:5000`** in your web browser to use Twoge.
-
-## **Table attributes**
-
-Twoge has a single table in its database, which stores information about each tweet. The table has the following attributes:
-
-- **`date_posted`**: The date and time when the tweet was posted.
-- **`author`**: The user who posted the tweet.
-- **`title`**: The title of the tweet.
-- **`content`**: The content of the tweet.
+Some other other (delete this line if no other)...
