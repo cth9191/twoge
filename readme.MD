@@ -136,22 +136,22 @@ jobs:
 ### .elasticbeanstalk/ config.yml
 ```
 
-branch-defaults:
-  master:
-    environment: twogeassmnt111
-global:
-  application_name: twoge
-  branch: null
-  default_ec2_keyname: null
-  default_platform: Docker running on 64bit Amazon Linux 2
-  default_region: us-east-2
-  include_git_submodules: true
-  instance_profile: null
-  platform_name: null
-  platform_version: null
-  profile: null
-  repository: null
-  sc: git
+branch-defaults:\
+  master:\
+    environment: twogeassmnt111\
+global:\
+  application_name: twoge\
+  branch: null\
+  default_ec2_keyname: null\
+  default_platform: Docker running on 64bit Amazon Linux 2\
+  default_region: us-east-2\
+  include_git_submodules: true\
+  instance_profile: null\
+  platform_name: null\
+  platform_version: null\
+  profile: null\
+  repository: null\
+  sc: git\
   workspace_type: Application
 
 ```
