@@ -58,9 +58,9 @@ name: Deploy Static game to EB using twoge Dockerhub
 on: push
 
 env:
-#   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-#   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  AWS_REGION: 'us-east-2'
+DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}\
+DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}\
+AWS_REGION: 'us-east-2'
 
 jobs:
   build_and_push:
